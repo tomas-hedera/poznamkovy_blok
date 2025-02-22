@@ -1,0 +1,124 @@
+*
+{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+}
+
+body
+{
+        display: flex;
+        justify-content: center;
+        background: #f4f4f4;
+        
+}
+
+.container
+{
+        display: grid;
+        grid-template-rows: 60px 1fr 40px;
+        grid-template-columns: 250px 1fr;
+        grid-template-areas: 
+                        "header header"
+                        "nav main"
+                        "footer footer";
+        height: 100vh;  
+        width: 90%;    
+        max-width: 1200px;          
+}
+
+
+header
+{
+        grid-area: header;
+        background: #476892;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+       
+        
+}
+
+/***NAVIGACE***/
+nav
+{
+        grid-area: nav;
+        background: #59355d;
+        color: white;
+        padding: 20px;
+}
+nav ul
+{
+        list-style: none;
+}
+
+nav ul li
+{
+        margin: 10px 0;
+}
+
+nav ul li a
+{
+        text-decoration: none;
+        color: white;
+}
+
+/***HLAVNÍ OBSAH***/
+main{
+        grid-area: main;
+        border: 1px solid black;
+
+}
+
+/***POZNÁMKY***/
+.note
+{
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin: 10px;
+        width: auto;
+        display: inline-block;
+        border-radius: 5px;
+
+}
+
+.note h2, .note p
+{
+        display: inline-block;
+}
+
+.note p
+{
+        margin: 10px 0;
+}
+
+button
+{
+        background: #476892;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 17px;
+
+}
+
+button.delete
+{
+        background: red;
+}
+
+/***PATIČKA***/
+footer
+{
+        grid-area: footer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #222;
+        color: white;
+}
