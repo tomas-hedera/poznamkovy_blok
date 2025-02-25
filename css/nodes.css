@@ -1,115 +1,202 @@
+/* Základní reset a základní stylování */
 * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
+    }
+    
+    body {
+        background: #f4f4f4;
         display: flex;
         justify-content: center;
-        background: #f4f4f4;
-
-}
-
-.container {
+    }
+    
+    .container {
         display: grid;
-        grid-template-rows: 60px 1fr 40px;
-        grid-template-columns: 250px 1fr;
+        grid-template-rows: 80px 1fr 40px;
+        grid-template-columns: 1fr;
         grid-template-areas:
-                "header header"
-                "main main"
-                "footer footer";
+            "header"
+            "main"
+            "footer";
         height: 100vh;
         width: 100%;
         max-width: 1440px;
-}
-
-
-header {
+    }
+    
+    /*** HEADER ***/
+    header {
         grid-area: header;
         background: #476892;
+        border-radius: 0 0 5px 5px;
         color: white;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 20px 20px;
-
-
-}
-
-/***NAVIGACE***/
-nav {
-        grid-area: nav;
+    }
+    
+    .user-panel {
+        display: none;
+    }
+    
+    .user-panel-mobile {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .fa-user {
+        font-size: 1.3em;
+    }
+    
+    .fa-bars {
+        font-size: 1.3em;
+    }
+    
+    /*** NAVIGACE ***/
+    nav {
         background: #59355d;
         color: white;
         padding: 20px;
-        position: absolute;
-        right: 100%;
-}
+        grid-area: nav; 
+        box-shadow: 0 0 5px black;
 
-nav ul {
-        list-style: none;
-}
+    }
 
-nav ul li {
-        margin: 10px 0;
-}
+    nav ul
+    {
+        list-style-type: none;
+    }
 
-nav ul li a {
-        text-decoration: none;
+    nav ul li
+    {
+        margin: 20px 20px;
+    }
+
+    nav ul li a 
+    {
         color: white;
-}
-
-/***HLAVNÍ OBSAH***/
-main {
+        text-decoration: none;
+        
+    }
+    
+    /*** HLAVNÍ OBSAH ***/
+    main {
         grid-area: main;
         border: 1px solid black;
+        box-shadow: 0 0 5px black;
+        border-radius: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 20px;
+        width: 100%;
+    }
 
-}
 
-/***POZNÁMKY***/
-.note {
+    
+    /*** POZNÁMKY ***/
+    .note {
         background: white;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         padding: 20px;
         margin: 10px;
-        width: auto;
-        display: inline-block;
+        flex: 1 1 auto;
         border-radius: 5px;
-
-}
-
-.note h2,
-.note p {
-        display: inline-block;
-}
-
-.note p {
+        box-shadow: 0 0 5px black;
+    }
+    
+    .note h2,
+    .note p {
+        display: block;
+    }
+    
+    .note p {
         margin: 10px 0;
-}
+        word-wrap: break-word;
+    }
 
-button {
+    .note input
+    {
+        border: none;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .note textarea
+    {
+        border: none;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+    
+    button {
         background: #476892;
         color: white;
         border: none;
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 17px;
-
-}
-
-button.delete {
+    }
+    
+    button.delete {
         background: red;
-}
-
-/***PATIČKA***/
-footer {
+    }
+    
+    /*** PATIČKA ***/
+    footer {
         grid-area: footer;
         display: flex;
         justify-content: center;
         align-items: center;
         background: #222;
         color: white;
-}
+        border-radius: 5px 5px 0 0 ;
+    }
+    
 
+    
+    @media(max-width: 565px) {
+        nav {
+            display: none;
+        }
+    
+        .hamburger {
+            display: block;
+        }
+    }
+    
+ 
+    @media(min-width: 566px) {
+        .note {
+            display: inline-block;
+            min-width: 200px;
+            max-width: 566px;
+            width: auto;
+        }
+    
+        .user-panel-mobile {
+            display: none;
+        }
+    
+        .user-panel {
+            display: flex;
+            align-items: center;
+        }
+    
+        .container {
+            grid-template-columns: 250px 1fr;
+            grid-template-areas:
+                "header header"
+                "nav main"
+                "footer footer";
+            gap: 10px;    
+        }
+    
+        nav {
+            display: block;
+            border-radius: 5px;
+        }
+
+     
+    }
