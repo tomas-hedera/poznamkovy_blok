@@ -1,3 +1,8 @@
+<?php
+include "db.php";
+include "login.php";
+var_dump($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>

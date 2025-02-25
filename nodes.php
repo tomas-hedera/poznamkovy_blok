@@ -1,9 +1,12 @@
 <?php
 include 'db.php';
+
+
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +22,7 @@ include 'db.php';
             <h1>Poznámkový blok</h1>
             <div class="user-panel">
                 <span>Přihlášen: Uživatel</span>
-                <button>Odhlásit</button>
+                <button class="odhlasit">Odhlásit</button>
             </div>
 
         </header>

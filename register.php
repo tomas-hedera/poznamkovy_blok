@@ -35,6 +35,6 @@ $db->close();
         <title>Registrace</title>
 </head>
 <body>
-        
+      
 </body>
 </html>
