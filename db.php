@@ -1,17 +1,25 @@
 <?php
 // Nastavení připojení k databázi
-$servername = "localhost";
+$host = "localhost";
+$dbname = "poznamkovy_blok";
 $username = "root";
 $password = "";
-$dbname = "poznamkovy_blok";
 
-//vytvorení připojení k databázi
-$db = new mysqli($servername, $username, $password, $dbname);
-
-
-// Kontrola připojení
-if($db->connect_error)
+try
 {
-        die("Chyba při připojení k databázi: " . $db->connect_error);
+        //vytvorení připojení k databázi
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+
+        // Nastavení chybového režimu: vyhazování výjimek při chybách
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
+catch(PDOException $e)
+{
+        // Pokud dojde k chybě, vypíšeme chybovou zprávu a ukončíme skript
+        die("Chyba při připjení k databazi" . $e->getMessage());
+}
+
+
+
+
 ?>

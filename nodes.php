@@ -1,8 +1,6 @@
 <?php
 include 'db.php';
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -18,20 +16,21 @@ include 'db.php';
 
 <body>
     <div class="container">
+
         <header>
             <h1>Poznámkový blok</h1>
             <div class="user-panel">
                 <span>Přihlášen: Uživatel</span>
                 <button class="odhlasit">Odhlásit</button>
             </div>
-
+        <!--Ikonky mobil -->
             <div class="user-panel-mobile">
                 <button name><i class="fa-solid fa-user"></i></button>
                 <button name="hamburger"><i class="fa-solid fa-bars"></i></button>
             </div>
 
         </header>
-
+        <!--Menu -postrani panel -->
         <nav>
             <ul>
                 <li><a href="#" id="add-note-btn"><i class="fa-solid fa-clipboard"></i> Přidat poznámku</a></li>
@@ -40,6 +39,8 @@ include 'db.php';
             </ul>
         </nav>
 
+
+        <!--hlavní -->
         <main id="main-content">
             <div class="note" >
                 <input type="text" name="note-title" id="note-title" value="Název poznámky"><br>
@@ -48,6 +49,8 @@ include 'db.php';
                 <button class="delete">Odtranit</button>
             </div>
         </main>
+
+
         <footer>
             <p>© 2025 Poznámkový blok</p>
         </footer>

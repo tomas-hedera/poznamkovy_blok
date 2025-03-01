@@ -7,7 +7,7 @@ include 'db.php';
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $username = trim($_POST['username']);
         $password = $_POST['password'];
-        session_unset();
+      
         // // Připravený SQL dotaz pro získání uživatele z databáze
         $dotaz = $db->prepare("SELECT id, password FROM users WHERE username = ?");
         $dotaz->execute([$username]);

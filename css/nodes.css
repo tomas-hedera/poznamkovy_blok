@@ -78,7 +78,11 @@
     {
         color: white;
         text-decoration: none;
-        
+    }
+
+    nav ul li a:hover
+    {
+        color: gold;
     }
     
     /*** HLAVNÍ OBSAH ***/
