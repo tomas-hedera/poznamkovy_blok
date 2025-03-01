@@ -1,5 +1,7 @@
 <?php
 include 'db.php';
+include 'login.php';
+//var_dump($_SESSION);
 
 ?>
 
@@ -19,14 +21,17 @@ include 'db.php';
 
         <header>
             <h1>Poznámkový blok</h1>
+            <!--přihlašený uživatel a tlačítko odhlasit se -->
             <div class="user-panel">
-                <span>Přihlášen: Uživatel</span>
+               <span> Přihlášen: </span><div class="prihlaseny_uzivatel"> <?php echo $_SESSION['username']; ?></div>
+               <form action="logout.php" method="post">
                 <button class="odhlasit">Odhlásit</button>
+                </form>
             </div>
-        <!--Ikonky mobil -->
+            <!--Ikonky mobil -->
             <div class="user-panel-mobile">
-                <button name><i class="fa-solid fa-user"></i></button>
-                <button name="hamburger"><i class="fa-solid fa-bars"></i></button>
+                <button  class="user-button-mobile" name="user_button"><i class="fa-solid fa-user"></i></button>
+                <button class = "hamburger-button" name="hamburger"><i class="fa-solid fa-bars"></i></button>
             </div>
 
         </header>
@@ -42,11 +47,11 @@ include 'db.php';
 
         <!--hlavní -->
         <main id="main-content">
-            <div class="note" >
+            <div class="note">
                 <input type="text" name="note-title" id="note-title" value="Název poznámky"><br>
                 <textarea name="note-content" rows="5" cols="40">Obsah poznámky</textarea><br>
                 <button class="edit">Upravit</button>
-                <button class="delete">Odtranit</button>
+                <button class="delete">Odstranit</button>
             </div>
         </main>
 

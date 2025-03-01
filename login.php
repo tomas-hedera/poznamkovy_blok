@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+require_once 'db.php';
 
 
 //prihlašeni  uživatele
@@ -9,8 +9,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $password = $_POST['password'];
       
         // // Připravený SQL dotaz pro získání uživatele z databáze
-        $dotaz = $db->prepare("SELECT id, password FROM users WHERE username = ?");
-        $dotaz->execute([$username]);
+        $dotaz = $pdo->prepare("SELECT id, password FROM users WHERE username = :username");
+        $dotaz->execute(['username' => $username]);
         $user = $dotaz->fetch();
 
          // Ověření hesla pomocí password_verif
@@ -18,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
          if($user && password_verify($password, $user['password']))
          {
                 $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $username;
                 
                 header("Location: nodes.php");
                 exit();

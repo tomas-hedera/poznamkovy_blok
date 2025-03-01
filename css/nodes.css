@@ -1,4 +1,16 @@
-/* Základní reset a základní stylování */
+/* NASTAVENÍ BAREV */
+:root {
+    --primary-bg: #1E2A38;  /* Barva pozadí headeru, footeru, navigace */
+    --secondary-bg: #ffffff; /* Hlavní obsah (main) */
+    --text-color: #ffffff; /* Barva textu */
+    --accent-color: #3A75C4; /* Barva tlačítek, odkazů */
+    --hover-color: #2563a1 ; /* Barva efektu při najetí myší */
+    --important-button: #ff0000; /* Barva tlačítek odhasit a smazat */
+}
+
+
+
+/* ZÁKLADNÍ RESET A ZAKLADNÍ STYLOVÁNÍ */
 * {
         margin: 0;
         padding: 0;
@@ -7,7 +19,7 @@
     }
     
     body {
-        background: #f4f4f4;
+        background: var(--secondary-bg);
         display: flex;
         justify-content: center;
     }
@@ -28,9 +40,9 @@
     /*** HEADER ***/
     header {
         grid-area: header;
-        background: #476892;
+        background: var(--primary-bg);
         border-radius: 0 0 5px 5px;
-        color: white;
+        color: var(--text-color);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -40,24 +52,50 @@
     .user-panel {
         display: none;
     }
+
+    .prihlaseny_uzivatel
+    {
+        font-weight: bold;
+
+    }
     
     .user-panel-mobile {
         display: flex;
         flex-direction: row;
     }
+
+    .user-button-mobile, .hamburger-button
+    {
+        background: transparent;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 17px;
+    }
     
-    .fa-user {
+    
+    .fa-user, .fa-bars {
         font-size: 1.3em;
     }
     
-    .fa-bars {
-        font-size: 1.3em;
+   
+
+    .odhlasit
+    {
+        background: var(--important-button);
+        margin-left: 10px;
+    }
+
+    .odhlasit:hover
+    {
+        background: #dd0000;
+
     }
     
     /*** NAVIGACE ***/
     nav {
-        background: #59355d;
-        color: white;
+        background: var(--primary-bg);
+        color: var(--text-color);
         padding: 20px;
         grid-area: nav; 
         box-shadow: 0 0 5px black;
@@ -82,7 +120,7 @@
 
     nav ul li a:hover
     {
-        color: gold;
+        color: var(--hover-color);
     }
     
     /*** HLAVNÍ OBSAH ***/
@@ -96,13 +134,14 @@
         align-items: flex-start;
         gap: 20px;
         width: 100%;
+        background: var(--secondary-bg);
     }
 
 
     
     /*** POZNÁMKY ***/
     .note {
-        background: white;
+        background: var(--secondary-bg);
         padding: 20px;
         margin: 10px;
         flex: 1 1 auto;
@@ -135,8 +174,8 @@
     }
     
     button {
-        background: #476892;
-        color: white;
+        background: var(--accent-color);
+        color: var(--text-color);
         border: none;
         padding: 5px 10px;
         border-radius: 5px;
@@ -144,7 +183,16 @@
     }
     
     button.delete {
-        background: red;
+        background: var(--important-button);
+    }
+
+    button.delete:hover {
+        background: #dd0000;
+
+    }
+
+    button.edit:hover {
+        background: var(--hover-color);
     }
     
     /*** PATIČKA ***/
@@ -153,12 +201,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #222;
-        color: white;
+        background: var(--primary-bg);
+        color: var(--text-color);
         border-radius: 5px 5px 0 0 ;
     }
     
 
+
+
+    /* RESPONSIVE DESING */
     
     @media(max-width: 565px) {
         nav {

@@ -2,6 +2,7 @@
 include "db.php";
 include "login.php";
 
+
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -24,9 +25,9 @@ include "login.php";
             <button id="krizek-register">X</button>
             <h2>Registrace</h2>
             <form action="register.php" method="post">
-                <input type="text" name="username" id="username" required placeholder="Uživatelské jméno">
+                <input type="text" name="username-register" id="username" required placeholder="Uživatelské jméno">
                 <br>
-                <input type="password" name="password" id="password" required placeholder="Heslo">
+                <input type="password" name="password-register" id="password" required placeholder="Heslo">
                 <br>
                 <button type="submit">Registrovat</button>
             </form>
