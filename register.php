@@ -1,6 +1,12 @@
 <?php
 include "db.php"; // Zahrnutí souboru pro připojení k databázi
 
+//TLACITKO ZPĚT NA ÚVODNÍ OBRAZOVKU
+if(array_key_exists("zpet", $_POST)) {
+        header("Location: index.php");
+        exit();
+    }
+
 
 // REGISTRACE UŽIVATELE
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Spuštění dotazu a kontrola úspěšnosti
     if ($stmt->execute(['username' => $username, 'password' => $hashed_password])) {
         echo "<h1>Registrace proběhla úspěšně</h1>";
-        header("Location: ?");
+        header("Location: register.php?success=1");
         exit();
         
     } else {
@@ -28,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-//TLACITKO ZPĚT
+
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Registrace</title>
 </head>
 <body>
-      <button name="zpet">Zpět na uvodní obrazovku</button>
+        <?php if(isset($_GET["success"])){ ?>
+        <h1>Registrace proběhla úspěšně</h1>
+        <form method="post">
+        <button name="zpet">Zpět na uvodní obrazovku</button>
+        </form>
+       <?php }  ?>
 </body>
 </html>
