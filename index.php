@@ -29,7 +29,7 @@ include "login.php";
                 <br>
                 <input type="password" name="password-register" id="password" required placeholder="Heslo">
                 <br>
-                <button type="submit">Registrovat</button>
+                <button name="registrovat">Registrovat</button>
             </form>
         </div>
         

@@ -1,0 +1,13 @@
+.hlaska
+{
+        color: red;
+        font-weight: bold;
+        background: red;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+        color: black;
+        height: 50px;
+        display: none;
+}
