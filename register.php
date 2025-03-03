@@ -28,11 +28,11 @@ if(isset($_POST["registrovat"]))
                 {
                         $dotaz = $pdo->prepare("INSERT INTO users(username, password) VALUES(:jmeno, :heslo)");
                         $dotaz->execute(["jmeno"=>$jmeno, "heslo"=>$hashed_heslo]);
-                        $hlaska = "Uživatel byl uspěšně registrován";
+                        $hlaska = "Uživatel byl uspěšně registrován :)";
                 }
                 else
                 {
-                        $hlaska = "Uživatel s tímto jménem už existuje";
+                        $hlaska = "Uživatel s tímto jménem už existuje!!!";
                 }
         }
         catch(PDOException $e)
@@ -53,26 +53,21 @@ if(isset($_POST["registrovat"]))
     <title>Registrace</title>
 </head>
 <body>
+
+<div class="hlaska"><?php if($hlaska) {echo $hlaska;}?>
+        </div>
+
        
         <form method="post">
         <button name="zpet">Zpět na uvodní obrazovku</button>
         </form>
 
-        <div class="hlaska"><?php if($hlaska) {echo $hlaska;}?>
-        </div>
+       
 
 
 
 
-
-        <script>
-             let hlaska = "<?php echo $hlaska; ?>";
-        if(hlaska)
-        {
-                let hlaskaDiv = document.querySelector(".hlaska");
-                hlaskaDiv.style.display = "block";
-        }
-        </script>
+        <script src="script.js"></script>
       
 </body>
 </html>
